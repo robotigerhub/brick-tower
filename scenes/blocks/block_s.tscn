@@ -4,11 +4,14 @@
 
 [node name="BlockS" instance=ExtResource("1_qk3xf")]
 
+[node name="Tile" parent="." index="0"]
+position = Vector2(-18, 9)
+
 [node name="Tile2" parent="." index="1"]
-position = Vector2(18, 0)
+position = Vector2(0, 9)
 
 [node name="Tile3" parent="." index="2"]
-position = Vector2(18, -18)
+position = Vector2(0, -9)
 
 [node name="Tile4" parent="." index="3"]
-position = Vector2(36, -18)
+position = Vector2(18, -9)
