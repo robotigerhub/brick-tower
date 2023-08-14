@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://bnhdkfbosp2ni" path="res://assets/visuals/background/Green.png" id="1_1nyg3"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_k0id4"]
-[ext_resource type="PackedScene" uid="uid://bxvh1rp84bcco" path="res://scenes/blocks/block_i.tscn" id="2_4uu25"]
-[ext_resource type="PackedScene" uid="uid://b178i44yrmst1" path="res://scenes/blocks/block_l.tscn" id="3_00gs7"]
-[ext_resource type="PackedScene" uid="uid://dcdr7n8dytvb5" path="res://scenes/blocks/block_s.tscn" id="4_v4h6q"]
+[ext_resource type="PackedScene" uid="uid://b77dm43j8trob" path="res://scenes/blocks/block_i.tscn" id="2_4uu25"]
+[ext_resource type="PackedScene" uid="uid://dh32lxqlbqw" path="res://scenes/blocks/block_l.tscn" id="3_00gs7"]
+[ext_resource type="PackedScene" uid="uid://b3r72vbo23qeg" path="res://scenes/blocks/block_s.tscn" id="4_v4h6q"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_k0id4")
@@ -25,3 +25,7 @@ freeze = true
 [node name="SpawnPosition" type="Marker2D" parent="."]
 position = Vector2(518, 50)
 gizmo_extents = 40.0
+
+[node name="MoveTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
