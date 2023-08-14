@@ -10,25 +10,36 @@ var can_move = true
 
 
 func _ready():
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(3).timeout
 	for i in 5:
 		current_block = spawn_block()
 		await current_block.body_entered
 		current_block.gravity_scale = 1
+	current_block = null
+
+
+func _physics_process(delta):
+	if current_block:
+		current_block.move_down(delta)
 
 
 func _process(_delta):
-	if not can_move:
+	if not current_block:
 		return
 	
-	if Input.is_action_pressed("left"):
-		current_block.move_left()
-	elif Input.is_action_pressed("right"):
-		current_block.move_right()
-	elif Input.is_action_pressed("down"):
-		current_block.move_down()
+	if Input.is_action_just_pressed("rotate"):
+		current_block.rotate_block()
+	if Input.is_action_pressed("down"):
+		current_block.go_fast()
+	else:
+		current_block.go_slow()
 	
-	await_move_timer()
+	if can_move:
+		if Input.is_action_pressed("left"):
+			current_block.move_left()
+		elif Input.is_action_pressed("right"):
+			current_block.move_right()
+		await_move_timer()
 
 
 func await_move_timer():
@@ -39,7 +50,7 @@ func await_move_timer():
 
 
 func spawn_block():
-	var block = blocks.pick_random().instantiate() as RigidBody2D
+	var block = blocks.pick_random().instantiate() as Block
 	call_deferred("add_child", block)
 	block.global_position = spawn_position.global_position
 	return block

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://wtfst7r4q6de" path="res://scenes/tile/tile.tscn" id="2_ewjad"]
 
 [node name="Block" type="RigidBody2D"]
+mass = 3.0
 max_contacts_reported = 16
 contact_monitor = true
 script = ExtResource("1_mkc5i")

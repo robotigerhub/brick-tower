@@ -23,7 +23,7 @@ rotation = 1.5708
 freeze = true
 
 [node name="SpawnPosition" type="Marker2D" parent="."]
-position = Vector2(518, 50)
+position = Vector2(518, 250)
 gizmo_extents = 40.0
 
 [node name="MoveTimer" type="Timer" parent="."]
