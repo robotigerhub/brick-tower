@@ -37,4 +37,4 @@ func move(vector: Vector2):
 
 
 func rotate_block():
-	global_rotation += PI/2
+	rotate(PI/2)

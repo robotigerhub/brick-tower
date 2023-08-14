@@ -18,21 +18,18 @@ func _ready():
 	current_block = null
 
 
-func _physics_process(delta):
-	if current_block:
-		current_block.move_down(delta)
-
-
-func _process(_delta):
+func _process(delta):
 	if not current_block:
 		return
 	
 	if Input.is_action_just_pressed("rotate"):
 		current_block.rotate_block()
+
 	if Input.is_action_pressed("down"):
 		current_block.go_fast()
 	else:
 		current_block.go_slow()
+	current_block.move_down(delta)
 	
 	if can_move:
 		if Input.is_action_pressed("left"):

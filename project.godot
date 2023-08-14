@@ -46,6 +46,8 @@ rotate={
 [physics]
 
 2d/default_gravity=98.0
+2d/sleep_threshold_linear=0.2
+2d/sleep_threshold_angular=0.014
 2d/time_before_sleep=2.0
 
 [rendering]
