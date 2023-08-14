@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://wtfst7r4q6de"]
 
-[ext_resource type="Texture2D" uid="uid://cv4syaeqmty6c" path="res://assets/visuals/tile_marble.png" id="1_trwnt"]
+[ext_resource type="Texture2D" uid="uid://cv4syaeqmty6c" path="res://assets/visuals/tiles/tile_marble.png" id="1_josfp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrn4o"]
 size = Vector2(18, 18)
@@ -9,4 +9,4 @@ size = Vector2(18, 18)
 shape = SubResource("RectangleShape2D_xrn4o")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_trwnt")
+texture = ExtResource("1_josfp")

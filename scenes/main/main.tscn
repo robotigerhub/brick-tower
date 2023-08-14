@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsbb22n7ut7e5"]
+
+[ext_resource type="Texture2D" uid="uid://bnhdkfbosp2ni" path="res://assets/visuals/background/Green.png" id="1_1nyg3"]
+[ext_resource type="PackedScene" uid="uid://bxvh1rp84bcco" path="res://scenes/blocks/block_i.tscn" id="2_4uu25"]
+
+[node name="Main" type="Node"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("1_1nyg3")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 1152, 648)
+
+[node name="BlockI" parent="." instance=ExtResource("2_4uu25")]
+position = Vector2(382, 199)
+gravity_scale = 0.0

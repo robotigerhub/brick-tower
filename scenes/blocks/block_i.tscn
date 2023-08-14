@@ -1,18 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxvh1rp84bcco"]
+[gd_scene load_steps=3 format=3 uid="uid://bxvh1rp84bcco"]
 
 [ext_resource type="PackedScene" uid="uid://wtfst7r4q6de" path="res://scenes/tile/tile.tscn" id="1_0d0dm"]
+[ext_resource type="Script" path="res://scenes/blocks/block.gd" id="1_wwdmn"]
 
 [node name="BlockI" type="RigidBody2D"]
-position = Vector2(94, 75)
-gravity_scale = 0.0
+script = ExtResource("1_wwdmn")
 
 [node name="Tile" parent="." instance=ExtResource("1_0d0dm")]
-position = Vector2(0, 18)
+position = Vector2(0, 27)
 
 [node name="Tile2" parent="." instance=ExtResource("1_0d0dm")]
+position = Vector2(0, 9)
 
 [node name="Tile3" parent="." instance=ExtResource("1_0d0dm")]
-position = Vector2(0, -18)
+position = Vector2(0, -9)
 
 [node name="Tile4" parent="." instance=ExtResource("1_0d0dm")]
-position = Vector2(0, -36)
+position = Vector2(0, -27)
