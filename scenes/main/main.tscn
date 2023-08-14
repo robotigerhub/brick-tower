@@ -1,14 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://bsbb22n7ut7e5"]
+[gd_scene load_steps=10 format=3 uid="uid://bsbb22n7ut7e5"]
 
 [ext_resource type="Texture2D" uid="uid://bnhdkfbosp2ni" path="res://assets/visuals/background/Green.png" id="1_1nyg3"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_k0id4"]
 [ext_resource type="PackedScene" uid="uid://b77dm43j8trob" path="res://scenes/blocks/block_i.tscn" id="2_4uu25"]
 [ext_resource type="PackedScene" uid="uid://dh32lxqlbqw" path="res://scenes/blocks/block_l.tscn" id="3_00gs7"]
 [ext_resource type="PackedScene" uid="uid://b3r72vbo23qeg" path="res://scenes/blocks/block_s.tscn" id="4_v4h6q"]
+[ext_resource type="PackedScene" uid="uid://cjneh77v680pv" path="res://scenes/blocks/block_z.tscn" id="5_fpyhj"]
+[ext_resource type="PackedScene" uid="uid://dw1wiw8yi1dwq" path="res://scenes/blocks/block_o.tscn" id="6_2jfcs"]
+[ext_resource type="PackedScene" uid="uid://qicbngvj1hnu" path="res://scenes/blocks/block_j.tscn" id="7_4am8n"]
+[ext_resource type="PackedScene" uid="uid://b4kkpordmhqtx" path="res://scenes/blocks/block_t.tscn" id="8_dkvai"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_k0id4")
-blocks = Array[PackedScene]([ExtResource("2_4uu25"), ExtResource("3_00gs7"), ExtResource("4_v4h6q")])
+blocks = Array[PackedScene]([ExtResource("2_4uu25"), ExtResource("3_00gs7"), ExtResource("4_v4h6q"), ExtResource("5_fpyhj"), ExtResource("6_2jfcs"), ExtResource("7_4am8n"), ExtResource("8_dkvai")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_repeat = 2
@@ -23,7 +27,7 @@ rotation = 1.5708
 freeze = true
 
 [node name="SpawnPosition" type="Marker2D" parent="."]
-position = Vector2(518, 250)
+position = Vector2(518, 150)
 gizmo_extents = 40.0
 
 [node name="MoveTimer" type="Timer" parent="."]

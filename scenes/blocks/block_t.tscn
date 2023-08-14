@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4kkpordmhqtx"]
+
+[ext_resource type="PackedScene" uid="uid://cb767f86n2w1b" path="res://scenes/blocks/block.tscn" id="1_u85sv"]
+
+[node name="BlockT" instance=ExtResource("1_u85sv")]
+
+[node name="Tile" parent="." index="0"]
+position = Vector2(-18, 9)
+
+[node name="Tile2" parent="." index="1"]
+position = Vector2(0, 9)
+
+[node name="Tile3" parent="." index="2"]
+position = Vector2(18, 9)
+
+[node name="Tile4" parent="." index="3"]
+position = Vector2(0, -9)
