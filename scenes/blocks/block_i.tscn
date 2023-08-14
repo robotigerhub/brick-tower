@@ -4,6 +4,8 @@
 [ext_resource type="Script" path="res://scenes/blocks/block.gd" id="1_wwdmn"]
 
 [node name="BlockI" type="RigidBody2D"]
+max_contacts_reported = 16
+contact_monitor = true
 script = ExtResource("1_wwdmn")
 
 [node name="Tile" parent="." instance=ExtResource("1_0d0dm")]

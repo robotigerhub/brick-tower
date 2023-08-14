@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://wtfst7r4q6de" path="res://scenes/tile/tile.tscn" id="2_kemwa"]
 
 [node name="BlockS" type="RigidBody2D"]
+max_contacts_reported = 16
+contact_monitor = true
 script = ExtResource("1_adhpg")
 
 [node name="Tile" parent="." instance=ExtResource("2_kemwa")]
