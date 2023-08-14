@@ -21,3 +21,7 @@ region_rect = Rect2(0, 0, 1152, 648)
 position = Vector2(500, 517)
 rotation = 1.5708
 freeze = true
+
+[node name="SpawnPosition" type="Marker2D" parent="."]
+position = Vector2(518, 50)
+gizmo_extents = 40.0

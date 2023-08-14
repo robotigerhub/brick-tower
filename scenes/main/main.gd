@@ -1,5 +1,7 @@
 extends Node
 
+@onready var spawn_position = $SpawnPosition
+
 @export var blocks: Array[PackedScene]
 
 var current_block = null
@@ -15,5 +17,5 @@ func _ready():
 func spawn_block():
 	var block = blocks.pick_random().instantiate()
 	call_deferred("add_child", block)
-	block.global_position = Vector2(518, 50)
+	block.global_position = spawn_position.global_position
 	return block
