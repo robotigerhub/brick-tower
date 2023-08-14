@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcdr7n8dytvb5"]
+
+[ext_resource type="Script" path="res://scenes/blocks/block.gd" id="1_adhpg"]
+[ext_resource type="PackedScene" uid="uid://wtfst7r4q6de" path="res://scenes/tile/tile.tscn" id="2_kemwa"]
+
+[node name="BlockS" type="RigidBody2D"]
+script = ExtResource("1_adhpg")
+
+[node name="Tile" parent="." instance=ExtResource("2_kemwa")]
+
+[node name="Tile2" parent="." instance=ExtResource("2_kemwa")]
+position = Vector2(18, 0)
+
+[node name="Tile3" parent="." instance=ExtResource("2_kemwa")]
+position = Vector2(18, -18)
+
+[node name="Tile4" parent="." instance=ExtResource("2_kemwa")]
+position = Vector2(36, -18)

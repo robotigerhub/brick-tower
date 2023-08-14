@@ -7,13 +7,12 @@
 script = ExtResource("1_wwdmn")
 
 [node name="Tile" parent="." instance=ExtResource("1_0d0dm")]
-position = Vector2(0, 27)
 
 [node name="Tile2" parent="." instance=ExtResource("1_0d0dm")]
-position = Vector2(0, 9)
+position = Vector2(0, -18)
 
 [node name="Tile3" parent="." instance=ExtResource("1_0d0dm")]
-position = Vector2(0, -9)
+position = Vector2(0, -36)
 
 [node name="Tile4" parent="." instance=ExtResource("1_0d0dm")]
-position = Vector2(0, -27)
+position = Vector2(0, -54)
