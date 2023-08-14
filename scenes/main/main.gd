@@ -11,7 +11,7 @@ var can_move = true
 
 func _ready():
 	await get_tree().create_timer(3).timeout
-	for i in 20:
+	for i in 18:
 		current_block = spawn_block()
 		await current_block.body_entered
 		current_block.gravity_scale = 1
