@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cb767f86n2w1b" path="res://scenes/blocks/block.tscn" id="1_mtrms"]
 
 [node name="BlockO" instance=ExtResource("1_mtrms")]
+modulate = Color(0, 1, 0, 1)
 
 [node name="Tile" parent="." index="0"]
 position = Vector2(-9, 9)

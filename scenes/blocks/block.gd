@@ -8,7 +8,6 @@ var speed = SLOW_SPEED
 
 
 func _ready():
-	modulate = Color(randf(), randf(), randf())
 	gravity_scale = 0
 
 
