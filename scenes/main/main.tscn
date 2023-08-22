@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bsbb22n7ut7e5"]
+[gd_scene load_steps=11 format=3 uid="uid://bsbb22n7ut7e5"]
 
 [ext_resource type="Texture2D" uid="uid://bnhdkfbosp2ni" path="res://assets/visuals/background/Green.png" id="1_1nyg3"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_k0id4"]
@@ -9,10 +9,19 @@
 [ext_resource type="PackedScene" uid="uid://dw1wiw8yi1dwq" path="res://scenes/blocks/block_o.tscn" id="6_2jfcs"]
 [ext_resource type="PackedScene" uid="uid://qicbngvj1hnu" path="res://scenes/blocks/block_j.tscn" id="7_4am8n"]
 [ext_resource type="PackedScene" uid="uid://b4kkpordmhqtx" path="res://scenes/blocks/block_t.tscn" id="8_dkvai"]
+[ext_resource type="PackedScene" uid="uid://ddf82rbf7knwl" path="res://scenes/support/support.tscn" id="10_qfj4x"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_k0id4")
 blocks = Array[PackedScene]([ExtResource("2_4uu25"), ExtResource("3_00gs7"), ExtResource("4_v4h6q"), ExtResource("5_fpyhj"), ExtResource("6_2jfcs"), ExtResource("7_4am8n"), ExtResource("8_dkvai")])
+
+[node name="MoveTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_repeat = 2
@@ -21,15 +30,22 @@ centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 1152, 648)
 
-[node name="BlockI" parent="." instance=ExtResource("2_4uu25")]
-position = Vector2(500, 517)
-rotation = 1.5708
-freeze = true
-
-[node name="SpawnPosition" type="Marker2D" parent="."]
+[node name="PlayPosition" type="Marker2D" parent="."]
 position = Vector2(518, 100)
 gizmo_extents = 40.0
 
-[node name="MoveTimer" type="Timer" parent="."]
-wait_time = 0.05
-one_shot = true
+[node name="PreviewPosition" type="Marker2D" parent="."]
+position = Vector2(255, 100)
+gizmo_extents = 40.0
+
+[node name="Support" parent="." instance=ExtResource("10_qfj4x")]
+position = Vector2(518, 500)
+
+[node name="Support2" parent="." instance=ExtResource("10_qfj4x")]
+position = Vector2(536, 500)
+
+[node name="Support3" parent="." instance=ExtResource("10_qfj4x")]
+position = Vector2(554, 482)
+
+[connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

@@ -1,14 +1,13 @@
 extends RigidBody2D
 class_name Block
 
+signal landed
+
 const SLOW_SPEED = 60
 const FAST_SPEED = SLOW_SPEED * 3
 
 var speed = SLOW_SPEED
-
-
-func _ready():
-	gravity_scale = 0
+var first_contact = true
 
 
 func go_slow():
@@ -37,3 +36,11 @@ func move(vector: Vector2):
 
 func rotate_block():
 	rotate(PI/2)
+
+
+func _on_body_entered(_body):
+	if first_contact:
+		gravity_scale = 1
+		landed.emit()
+		first_contact = false
+		set_deferred("contact_monitor", false)

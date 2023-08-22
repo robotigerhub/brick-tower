@@ -1,24 +1,28 @@
 extends Node
 
-@onready var spawn_position = $SpawnPosition
+@onready var play_position = $PlayPosition
+@onready var preview_position = $PreviewPosition
 @onready var move_timer = $MoveTimer
+@onready var start_timer = $StartTimer
 
 @export var blocks: Array[PackedScene]
 
-var current_block = null
-var can_move = true
+var current_block: Block = null
+var next_block: Block = null
+var can_move_sideways = true
+var blocks_to_go = 10
 
 
 func _ready():
-	await get_tree().create_timer(3).timeout
-	for i in 18:
-		current_block = spawn_block()
-		await current_block.body_entered
-		current_block.gravity_scale = 1
-	current_block = null
+	get_new_next_block()
+	start_timer.start()
 
 
 func _process(delta):
+	handle_input(delta)
+
+
+func handle_input(delta):
 	if not current_block:
 		return
 	
@@ -31,23 +35,49 @@ func _process(delta):
 		current_block.go_slow()
 	current_block.move_down(delta)
 	
-	if can_move:
+	if can_move_sideways:
 		if Input.is_action_pressed("left"):
 			current_block.move_left()
 		elif Input.is_action_pressed("right"):
 			current_block.move_right()
-		await_move_timer()
+		prevent_side_movement()
 
 
-func await_move_timer():
-	can_move = false
+func prevent_side_movement():
+	can_move_sideways = false
 	move_timer.start()
-	await move_timer.timeout
-	can_move = true
 
 
-func spawn_block():
-	var block = blocks.pick_random().instantiate() as Block
-	call_deferred("add_child", block)
-	block.global_position = spawn_position.global_position
-	return block
+func play_block():
+	next_block.landed.connect(_on_current_block_landed)
+	next_block.global_position = play_position.global_position
+	current_block = next_block
+	
+	if blocks_to_go > 0:
+		get_new_next_block()
+	else:
+		next_block = null
+
+
+func get_new_next_block():
+	next_block = blocks.pick_random().instantiate() as Block
+	
+	await get_tree().process_frame
+	add_child(next_block)
+	next_block.global_position = preview_position.global_position
+	blocks_to_go -= 1
+
+
+func _on_current_block_landed():
+	if next_block:
+		play_block()
+	else:
+		current_block = null
+
+
+func _on_move_timer_timeout():
+	can_move_sideways = true
+
+
+func _on_start_timer_timeout():
+	play_block()
