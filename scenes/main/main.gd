@@ -5,4 +5,3 @@ extends Node
 
 func _ready():
 	support_controller.spawn_supports(0)
-	

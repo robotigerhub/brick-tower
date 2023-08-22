@@ -6,12 +6,12 @@ var a = 500
 var l = 18
 var positions = {
 	0: {
-		"x": [a - l*2, a - l*1, a + l*0, a + l+1, a + l*2],
-		"y": [a - l*2, a - l*1, a + l*0, a + l+1, a + l*2]
+		"x": [-2, 2],
+		"y": [-2, 2]
 	},
 	1: {
-		"x": [a - l*3, a - l*2, a - l*1, a + l*0, a + l*1, a + l*2, a + l*3],
-		"y": [a - l*3, a - l*4, a - l*5, a - l*6, a - l*7]
+		"x": [-3, 3],
+		"y": [-3, -7]
 	}
 }
 var counts = [5, 4]
@@ -21,4 +21,8 @@ func spawn_supports(level: int):
 	for i in counts[level]:
 		var support = support_scene.instantiate()
 		add_child(support)
-		support.global_position = Vector2(positions[level]["x"].pick_random(), positions[level]["y"].pick_random())
+		var x_from = positions[level]["x"][0]
+		var x_to = positions[level]["x"][1]
+		var y_from = positions[level]["y"][0]
+		var y_to = positions[level]["y"][1]
+		support.global_position = Vector2(a + l*randi_range(x_from, x_to), a + l*randi_range(y_from, y_to))
