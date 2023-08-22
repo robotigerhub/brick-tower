@@ -1,0 +1,25 @@
+[gd_scene load_steps=9 format=3 uid="uid://c6avpb317o5ku"]
+
+[ext_resource type="Script" path="res://scenes/controllers/block_controller.gd" id="1_521lx"]
+[ext_resource type="PackedScene" uid="uid://b77dm43j8trob" path="res://scenes/blocks/block_i.tscn" id="2_03dmu"]
+[ext_resource type="PackedScene" uid="uid://qicbngvj1hnu" path="res://scenes/blocks/block_j.tscn" id="3_gujr2"]
+[ext_resource type="PackedScene" uid="uid://dh32lxqlbqw" path="res://scenes/blocks/block_l.tscn" id="4_jg1eo"]
+[ext_resource type="PackedScene" uid="uid://dw1wiw8yi1dwq" path="res://scenes/blocks/block_o.tscn" id="5_c0nho"]
+[ext_resource type="PackedScene" uid="uid://b3r72vbo23qeg" path="res://scenes/blocks/block_s.tscn" id="6_t1ti3"]
+[ext_resource type="PackedScene" uid="uid://b4kkpordmhqtx" path="res://scenes/blocks/block_t.tscn" id="7_ys1ci"]
+[ext_resource type="PackedScene" uid="uid://cjneh77v680pv" path="res://scenes/blocks/block_z.tscn" id="8_6vt36"]
+
+[node name="BlockController" type="Node"]
+script = ExtResource("1_521lx")
+blocks = Array[PackedScene]([ExtResource("2_03dmu"), ExtResource("3_gujr2"), ExtResource("4_jg1eo"), ExtResource("5_c0nho"), ExtResource("6_t1ti3"), ExtResource("7_ys1ci"), ExtResource("8_6vt36")])
+
+[node name="MoveTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
