@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bsbb22n7ut7e5"]
+[gd_scene load_steps=5 format=3 uid="uid://bsbb22n7ut7e5"]
 
 [ext_resource type="Texture2D" uid="uid://bnhdkfbosp2ni" path="res://assets/visuals/background/Green.png" id="1_1nyg3"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_k0id4"]
 [ext_resource type="PackedScene" uid="uid://c6avpb317o5ku" path="res://scenes/controllers/block_controller.tscn" id="2_prxtd"]
 [ext_resource type="PackedScene" uid="uid://y571ja5d3wb" path="res://scenes/controllers/support_controller.tscn" id="3_5pv3d"]
-[ext_resource type="PackedScene" uid="uid://ddf82rbf7knwl" path="res://scenes/support/support.tscn" id="10_qfj4x"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_k0id4")
@@ -22,15 +21,6 @@ texture = ExtResource("1_1nyg3")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 1152, 648)
-
-[node name="Support" parent="." instance=ExtResource("10_qfj4x")]
-position = Vector2(518, 500)
-
-[node name="Support2" parent="." instance=ExtResource("10_qfj4x")]
-position = Vector2(536, 500)
-
-[node name="Support3" parent="." instance=ExtResource("10_qfj4x")]
-position = Vector2(554, 482)
 
 [node name="PlayPosition" type="Marker2D" parent="."]
 position = Vector2(518, 100)
